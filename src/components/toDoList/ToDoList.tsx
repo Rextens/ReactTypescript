@@ -8,6 +8,15 @@ function ToDoList(props: any) {
     const [inputValue, setInputValue] = useState<string>("")
 
     //HANDLERS
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        setInputValue(value);
+    }
+
+    const handleButtonClick = () => {
+        setToDoList([...toDoList, inputValue])
+        setInputValue("")
+    }
 
     ///RETURN
     return (
