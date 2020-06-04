@@ -24,7 +24,7 @@ function ToDoList(props: any) {
             ))}
             
             <br/>
-            <button onClick={handleThanosButtonClick}> Delete all tasks </button>
+            <button onClick={handleButtonClick}> Delete all tasks </button>
         </div>
     )
 }
