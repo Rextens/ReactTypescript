@@ -19,7 +19,7 @@ function ToDoList(props: any) {
     }
 
     const handleThanosButtonClick = () => {
-        setToDoList([...toDoList, inputValue])
+        setToDoList([])
         setInputValue("")
     }
 
