@@ -18,6 +18,10 @@ function ToDoList(props: any) {
         setInputValue("")
     }
 
+    const handleThanosButtonClick = () => {
+        setToDoList([])
+    }
+
     ///RETURN
     return (
         <div>
@@ -33,7 +37,7 @@ function ToDoList(props: any) {
             ))}
             
             <br/>
-            <button onClick={handleButtonClick}> Delete all tasks </button>
+            <button onClick={handleThanosButtonClick}> Delete all tasks </button>
         </div>
     )
 }
