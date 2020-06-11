@@ -2,7 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { ToDoList } from './components/toDoList'
+//import { ToDoList } from './components'
+import { Opaque } from './components'
 
 function App() {
   return (
@@ -12,9 +13,9 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <ToDoList>
-
-        </ToDoList>
+        <Opaque>
+          
+        </Opaque>
 
         <a
           className="App-link"

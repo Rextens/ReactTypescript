@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState } from 'react'
 import ToDo from './ToDo'
 
 function ToDoList(props: any) {
@@ -20,7 +20,6 @@ function ToDoList(props: any) {
 
     const handleThanosButtonClick = () => {
         setToDoList([])
-        setInputValue("")
     }
 
     ///RETURN
