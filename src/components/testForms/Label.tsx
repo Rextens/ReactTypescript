@@ -14,7 +14,7 @@ function IntInput( { inputName, text, handlingFunction, validateFunction, varSta
     //RETURN
         return (
             <div>
-                <label> {text}
+                <label> {text} <br/>
                     <input 
                     name={inputName}
                     type="text"

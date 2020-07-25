@@ -1,0 +1,11 @@
+.chooseOption {
+    float: left;
+    width: 20%;
+    height: 50px;
+    background-color: aqua;
+    text-align: center;
+}
+
+.chooseOption:hover {
+    background-color: blueviolet;
+}

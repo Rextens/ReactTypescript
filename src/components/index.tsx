@@ -1,7 +1,5 @@
-import myToDoList from './toDoList/ToDoList'
-import myToDo from './toDoList/ToDo'
 import myOpaque from './testForms/Opaque'
+import chooseOption from './testForms/ChooseOption'
 
-export const ToDoList = myToDoList;
-export const ToDo = myToDo;
 export const Opaque = myOpaque;
+export const ChooseOption = chooseOption;

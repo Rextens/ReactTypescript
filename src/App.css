@@ -1,3 +1,20 @@
+@font-face {
+  font-family: "Azonix";
+  src: url("fonts/Azonix.otf") format("otf");
+}
+
+.App {
+  background-color: #282c34;
+  font-size: calc(30px);
+  color: white;
+  text-align: center;
+  font-family: 'Azonix';
+  min-height: 100vh;
+}
+
+
+
+/*
 .App {
   text-align: center;
 }
@@ -36,3 +53,4 @@
     transform: rotate(360deg);
   }
 }
+*/
