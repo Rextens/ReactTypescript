@@ -1,13 +1,60 @@
 import React, { } from 'react'
+import CustomForm from '../../others/CustomForm'
+import IntInput from '../Label'
+import GithubWrapper from '../../others/GithubWrapper'
 
-function EditGist() {
-    //HANDLERS
+export default class EditGist extends CustomForm {
 
-    //RETURN
+    state = {
+        Description: '',
+        DescriptionError: '',
+        TextArea: '',
+    }
+
+    constructor(props: any) {
+      super(props);
+
+      let githubWrapper: GithubWrapper = new GithubWrapper();
+      githubWrapper.getGist('8ff268b5415270264d18aec2b2f51d5f').then((response) => {
+        this.setState({Description: response.data.description})
+        this.setState({TextArea: response.data.files.JustFile.content})
+			})
+    }
+
+    handleSubmit = () => {
+        const { Description, TextArea}: any = this.state;
+        
+        let githubWrapper: GithubWrapper = new GithubWrapper();
+
+        let gistPayload = {
+            "description": Description,
+            "public": true,
+            "files": {
+              "JustFile": {
+                "content": TextArea
+              },
+            }
+          }
+        
+        githubWrapper.updateGist('8ff268b5415270264d18aec2b2f51d5f', gistPayload).then((result) => {console.log(result)}).catch(error => { console.log(error.response) });
+    }
+
+    render()
+    {
+        const { Description, TextArea }: any = this.state;
+        
         return (
-            <div>
+            <div>    
+                <form onSubmit={this.handleSubmit}>
+                    <IntInput inputName={'Description'} text={'gist description'} handlingFunction={this.handleInputChange} validateFunction={(event: React.FocusEvent<HTMLInputElement>) => this.validateInput(event, 3)} varState={Description} /> 
+                    <div className='invalid-feedback'>{this.state.DescriptionError}</div>
+
+                    <textarea name={'TextArea'} value={TextArea} onChange={this.handleInputChange} rows={10} cols={50}/> <br/> 
+
+                    <button>Submit!</button>
+                </form>
             </div>
         )
+    }
 }
 
-export default EditGist;

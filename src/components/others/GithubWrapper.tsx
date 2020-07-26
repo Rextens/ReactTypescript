@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from 'axios'
 
 export default class GithubWrapper {
 
-    token: string = '1c4867320880a6c26c1c5b7f6467b8d7e43f3c53'
+    token: string = '729e6c2376d36a2dedf6dd2acbfad1754c691975'
     client: AxiosInstance;
     
     constructor() {
@@ -26,29 +26,37 @@ export default class GithubWrapper {
     private patchRequest(path: any, payload: any) {
         return this.client.patch(path, payload)
     }
+
+    private deleteRequest(path: string) {
+        return this.client.delete(path)
+    }
     
     root() {
         return this.getRequest('/')
     }
     
-    createGist(payload: any) {
-        return this.postRequest('/gists', payload)
+    async createGist(payload: any) {
+        return await this.postRequest('/gists', payload)
     }
     
-    getGist(gistId: any) {
-        return this.getRequest(`/gists/${gistId}`)
+    async getGist(gistId: any) {
+        return await this.getRequest(`/gists/${gistId}`)
     }
 
-    updateGist(gistId: any, payload: any) {
-        return this.patchRequest(`/gists/${gistId}`, payload)
+    async updateGist(gistId: any, payload: any) {
+        return await this.patchRequest(`/gists/${gistId}`, payload)
     }
 
-    collection(githubUsername: any, per_page = 30, page = 1) {
-        return this.getRequest(`/users/${githubUsername}/gists?per_page=${per_page}&page=${page}`)
+    async collection(githubUsername: any, per_page = 30, page = 1) {
+        return await this.getRequest(`/users/${githubUsername}/gists?per_page=${per_page}&page=${page}`)
     }
 
-    filter(githubUsername: any, keyword: any, per_page = 30, page = 1) {
-		return this.collection(githubUsername, per_page, page).then((response) => {
+    async deleteGist(gistId: any) {
+        return await this.deleteRequest(`/gists/${gistId}`)
+    }
+
+    async filter(githubUsername: any, keyword: any, per_page = 30, page = 1) {
+		return await this.collection(githubUsername, per_page, page).then((response) => {
 				return response.data.filter(function(gist: any) {
 					return gist.description.includes(keyword)
 				})

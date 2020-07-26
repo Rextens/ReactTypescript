@@ -1,5 +1,5 @@
 import React from 'react';
-import { Opaque, ChooseOption } from './components'
+import { ChooseOption } from './components'
 
 import './App.css'
 

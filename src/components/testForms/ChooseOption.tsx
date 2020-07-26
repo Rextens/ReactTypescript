@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {  } from 'react'
 import './ChooseOptions.css'
 import CreateGist from './gistOptions/create'
 import DeleteGist from './gistOptions/delete'
@@ -13,21 +13,32 @@ function ChooseOption() {
         return (
             <HashRouter>
                 <div className="menu">
-                    <div className="chooseOption">
-                        <NavLink to='/CreateGist'>Create gist</NavLink>
-                    </div>
-                    <div className="chooseOption">
-                        <NavLink to='/DeleteGist'>Delete gist</NavLink>
-                    </div>
-                    <div className="chooseOption">
-                        <NavLink to='/EditGist'>Edit gist</NavLink>
-                    </div>
-                    <div className="chooseOption">
-                        <NavLink to='/FilterGists'>Filter gists</NavLink>
-                    </div>
-                    <div className="chooseOption">
-                        <NavLink to='/PaginateGist'>Paginate gists</NavLink>
-                    </div>
+                    <NavLink to='/CreateGist'>
+                        <div className="chooseOption">
+                            Create gist
+                        </div>
+                    </NavLink>
+                    <NavLink to='/DeleteGist'>
+                        <div className="chooseOption">
+                            Delete gist
+                        </div>
+                    </NavLink>
+
+                    <NavLink to='/EditGist'>
+                        <div className="chooseOption">
+                            Edit gist
+                        </div>
+                    </NavLink>
+                    <NavLink to='/FilterGists'>
+                        <div className="chooseOption">
+                            Filter gists
+                        </div>    
+                    </NavLink>
+                    <NavLink to='/PaginateGist'>
+                        <div className="chooseOption">
+                            Paginate gists
+                        </div>
+                    </NavLink>
                 </div>
                 <div className="content">
                     <Route exact path="/CreateGist" component={CreateGist}></Route>
