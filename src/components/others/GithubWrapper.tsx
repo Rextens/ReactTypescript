@@ -1,17 +1,19 @@
 import axios, { AxiosInstance } from 'axios'
+import * as dotenv from 'dotenv';
 
 export default class GithubWrapper {
 
-    token: string = '729e6c2376d36a2dedf6dd2acbfad1754c691975'
     client: AxiosInstance;
     
     constructor() {
+        dotenv.config({ path: './.env' })
+
         this.client = axios.create({
           baseURL: 'https://api.github.com/',
           responseType: 'json',
           headers: {
             'Accept': 'application/vnd.github.v3+json',
-            'Authorization': 'token ' + this.token,
+            'Authorization': 'token ' + process.env.REACT_APP_GITHUB_TOKEN,
           }
         })
       }

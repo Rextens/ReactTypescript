@@ -1,6 +1,7 @@
 import React, { } from 'react'
 import CustomForm from '../../others/CustomForm'
 import GithubWrapper from '../../others/GithubWrapper'
+import IntInput from '../Label'
 import './DeleteInput.css'
 
 export default class DeleteGist extends CustomForm {
@@ -64,12 +65,11 @@ export default class DeleteGist extends CustomForm {
 
     render()
     {
-        const { descriptions, pushed }: any = this.state;
+        const { descriptions, pushed, Description }: any = this.state;
         
         return (
             <div>    
                 <form onSubmit={this.handleSubmit}>
-                    
                     <button>Submit!</button>
                 </form>
 

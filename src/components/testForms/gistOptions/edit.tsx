@@ -15,7 +15,7 @@ export default class EditGist extends CustomForm {
       super(props);
 
       let githubWrapper: GithubWrapper = new GithubWrapper();
-      githubWrapper.getGist('8ff268b5415270264d18aec2b2f51d5f').then((response) => {
+      githubWrapper.getGist('ba99155351a8591d8de5d2a73992bec7').then((response) => {
         this.setState({Description: response.data.description})
         this.setState({TextArea: response.data.files.JustFile.content})
 			})
@@ -36,7 +36,7 @@ export default class EditGist extends CustomForm {
             }
           }
         
-        githubWrapper.updateGist('8ff268b5415270264d18aec2b2f51d5f', gistPayload).then((result) => {console.log(result)}).catch(error => { console.log(error.response) });
+        githubWrapper.updateGist('ba99155351a8591d8de5d2a73992bec7', gistPayload).then((result) => {console.log(result)}).catch(error => { console.log(error.response) });
     }
 
     render()
