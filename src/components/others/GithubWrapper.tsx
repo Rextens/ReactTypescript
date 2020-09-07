@@ -62,6 +62,8 @@ export default class GithubWrapper {
 				return response.data.filter(function(gist: any) {
 					return gist.description.includes(keyword)
 				})
-			})
+			}).catch((result) => {
+                return 'found error, check username'
+            })
 	}
 }

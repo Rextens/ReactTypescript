@@ -15,7 +15,7 @@ export default class CustomForm extends Component {
       validateInput = (event: React.FocusEvent<HTMLInputElement>, minimumValue: number) => {
         this.setState({
           [event.target.name + 'Error']:
-            event.target.value.length > minimumValue ? null : 'Name must be longer than 3 characters'
+            event.target.value.length > minimumValue ? null : 'I wont stop you. I just wanted to communicate that text is below 4 letters'
         });
       }
     
