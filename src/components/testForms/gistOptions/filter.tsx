@@ -12,14 +12,13 @@ export default class Filter extends CustomForm {
 
     handleSubmit = () => {
         let githubWrapper: GithubWrapper = new GithubWrapper();
-
-        githubWrapper.filter('Rextens', this.state.Keyword).then((collection) => {
-            collection.forEach(function(item: any) {
-              console.log(`${item.id}-${item.description}`)
+            githubWrapper.filter('Rextens', this.state.Keyword).then((collection) => {
+                collection.forEach(function(item: any) {
+                    console.log(`${item.id}-${item.description}`)
+                })
             })
-        })
     }
-
+    
     render()
     {
         const { Keyword }: any = this.state;
@@ -28,6 +27,7 @@ export default class Filter extends CustomForm {
             <div>    
                 <form onSubmit={this.handleSubmit}>
                     <IntInput inputName={'Keyword'} text={'gist keyword'} handlingFunction={this.handleInputChange} validateFunction={(event: React.FocusEvent<HTMLInputElement>) => this.validateInput(event, 3)} varState={Keyword} /> 
+                    <div className='invalid-feedback'>{this.state.KeywordError}</div>
 
                     <button>Submit!</button>
                 </form>

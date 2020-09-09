@@ -8,15 +8,16 @@ export default class GithubWrapper {
     constructor() {
         dotenv.config({ path: './.env' })
 
-        this.client = axios.create({
-          baseURL: 'https://api.github.com/',
-          responseType: 'json',
-          headers: {
-            'Accept': 'application/vnd.github.v3+json',
-            'Authorization': 'token ' + process.env.REACT_APP_GITHUB_TOKEN,
-          }
+            this.client = axios.create({
+                baseURL: 'https://api.github.com/',
+                responseType: 'json',
+                headers: {
+                'Accept': 'application/vnd.github.v3+json',
+                'Authorization': 'token ' + process.env.REACT_APP_GITHUB_TOKEN
+            }
         })
-      }
+    }
+
     private getRequest(path: string) {
         return this.client.get(path)
     }
